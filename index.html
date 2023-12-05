@@ -1,0 +1,163 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./AmogOS.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bgColor: #33a8ff;
+        --textColor: #000000;
+        --btnColor: RGBA(0, 0, 0, 0.25);
+        --btnColorHvr: RGBA(0, 0, 0, 0.5);
+      }
+      * {
+        font-family: "Nova Square", sans-serif;
+      }
+
+.mnuTitle{
+  margin-top:60px;
+}
+
+      body {
+        /* background-color: VAR(--bgColor); */
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 10s ease infinite;
+      }
+
+      .mnuRow {
+        width: 200px;
+        height: 40px;
+        background: var(--btnColor);
+        transition: all 0.2s ease-in-out;
+        padding: 0 20px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        border: solid 1px RGBA(0, 0, 0, 0.5);
+      }
+
+      .mnuRow:hover {
+        background-color: var(--btnColorHvr);
+        border: solid 1px RGBA(0, 0, 0, 0.8);
+        color:#ffffff;
+      }
+
+      .iconImg {
+        margin-right: 20px;
+      }
+
+      h2 {
+        font-size: 50px;
+        margin-bottom: 30px;
+        color: var(--textColor);
+      }
+
+      a {
+        font-size: 30px;
+        display: block;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: var(--textColor);
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2 class="mnuTitle">My Menu</h2>
+    <div>
+      <a
+        id="Sonarr"
+        href="http://72.140.141.107:8888"
+        target="_blank"
+        class="mnuRow"
+      >
+        <img src="./sonarr.svg" alt="Sonarr Icon" class="iconImg" />
+        <span class="linkTitle">Sonarr</span>
+      </a>
+      <a
+        id="Radarr"
+        href="http://72.140.141.107:7950"
+        target="_blank"
+        class="mnuRow"
+      >
+        <img src="./radarr.svg" alt="Radarr Icon" class="iconImg" />
+        <span class="linkTitle">Radarr</span>
+      </a>
+      <a
+        id="Jellyfin"
+        href="http://72.140.141.107:9005"
+        target="_blank"
+        class="mnuRow"
+      >
+        <img src="./jellyfin.svg" alt="Jellyfin Icon" class="iconImg" />
+        <span class="linkTitle">Jellyfin</span>
+      </a>
+      <a
+        id="SABNbz"
+        href="http://72.140.141.107:8080"
+        target="_blank"
+        class="mnuRow"
+      >
+        <img src="./sabnzbd.png" alt="SABNbz Icon" class="iconImg" />
+        <span class="linkTitle">SABNbz</span>
+      </a>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var Sonarr = document.getElementById("Sonarr");
+        var Radarr = document.getElementById("Radarr");
+        var Jellyfin = document.getElementById("Jellyfin");
+        var SABNbz = document.getElementById("SABNbz");
+
+        var currentHost = window.location.hostname;
+        var currentPort = window.location.port;
+
+        if (currentHost === "192.168.0.89") {
+          Sonarr.href = "http://192.168.0.89:8888";
+          Radarr.href = "http://192.168.0.7950";
+          Jellyfin.href = "http://192.168.0.9005";
+          SABNbz.href = "http://192.168.0.89:8080";
+        } else {
+          Sonarr.href = "http://72.140.141.107:8888";
+          Radarr.href = "http://72.140.141.107:7950";
+          Jellyfin.href = "http://72.140.141.107:9005";
+          SABNbz.href = "http://72.140.141.107:8080";
+        }
+      });
+    </script>
+  </body>
+</html>
