@@ -15,15 +15,17 @@
         --btnColor: RGBA(0, 0, 0, 0.25);
         --btnColorHvr: RGBA(0, 0, 0, 0.5);
       }
+
       * {
         font-family: "Nova Square", sans-serif;
       }
 
-.mnuTitle{
-  margin-top:60px;
-}
+      .mnuTitle {
+        margin-top: 60px;
+      }
 
       body {
+        overflow: hidden;
         /* background-color: VAR(--bgColor); */
         font-family: Arial, sans-serif;
         margin: 20px;
@@ -32,13 +34,28 @@
         justify-content: center;
         align-items: center;
         /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
-        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background: linear-gradient(
+          -45deg,
+          #fb6a61,
+          #fb6b8c,
+          #ec77b3,
+          #d287d0,
+          #b197e2,
+          #8caaf5,
+          #61bbfc,
+          #38caf7,
+          #18e0e9,
+          #66f0cb,
+          #b0fba9,
+          #faff93
+        );
+
         background-size: 400% 400%;
         animation: gradient 10s ease infinite;
       }
 
       .mnuRow {
-        width: 200px;
+        width: 250px;
         height: 40px;
         background: var(--btnColor);
         transition: all 0.2s ease-in-out;
@@ -49,20 +66,32 @@
         justify-content: flex-start;
         align-items: center;
         border: solid 1px RGBA(0, 0, 0, 0.5);
+        margin-bottom: 15px;
       }
 
       .mnuRow:hover {
         background-color: var(--btnColorHvr);
-        border: solid 1px RGBA(0, 0, 0, 0.8);
-        color:#ffffff;
+        border: solid 1px RGBA(255, 255, 255, 0.8);
+        color: #ffffff;
+      }
+
+      .mnuRow:hover .iconImg,
+      .mnuRow:hover .linkTitle {
+        opacity: 1;
       }
 
       .iconImg {
         margin-right: 20px;
+        opacity: 0.25;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .linkTitle {
+        opacity: 0.75;
       }
 
       h2 {
-        font-size: 50px;
+        font-size: 60px;
         margin-bottom: 30px;
         color: var(--textColor);
       }
@@ -135,6 +164,15 @@
         <img src="./sabnzbd.png" alt="SABNbz Icon" class="iconImg" />
         <span class="linkTitle">SABNbz</span>
       </a>
+      <a
+        id="Qbittorent"
+        href="http://72.140.141.107:8085"
+        target="_blank"
+        class="mnuRow"
+      >
+        <img src="./qbittorent.png" alt="Qbittorent Icon" class="iconImg" />
+        <span class="linkTitle">Qbittorent</span>
+      </a>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -142,20 +180,22 @@
         var Radarr = document.getElementById("Radarr");
         var Jellyfin = document.getElementById("Jellyfin");
         var SABNbz = document.getElementById("SABNbz");
+        var Qbittorent = document.getElementById("Qbittorent");
 
         var currentHost = window.location.hostname;
-        var currentPort = window.location.port;
 
         if (currentHost === "192.168.0.89") {
           Sonarr.href = "http://192.168.0.89:8888";
           Radarr.href = "http://192.168.0.7950";
           Jellyfin.href = "http://192.168.0.9005";
           SABNbz.href = "http://192.168.0.89:8080";
+          Qbittorent.href = "http://192.168.0.89:8085";
         } else {
           Sonarr.href = "http://72.140.141.107:8888";
           Radarr.href = "http://72.140.141.107:7950";
           Jellyfin.href = "http://72.140.141.107:9005";
           SABNbz.href = "http://72.140.141.107:8080";
+          Qbittorent.href = "http://72.140.141.107:8085";
         }
       });
     </script>
