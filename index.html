@@ -1,39 +1,40 @@
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="./AmogOS.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap"
-      rel="stylesheet"
+    <link href='https://fonts.googleapis.com/css?family=Nova+Square' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet"
+    
     />
     <style>
-      :root {
+        :root {
         --bgColor: #33a8ff;
         --textColor: #000000;
         --btnColor: RGBA(0, 0, 0, 0.25);
         --btnColorHvr: RGBA(0, 0, 0, 0.5);
       }
 
-      * {
-        font-family: "Nova Square", sans-serif;
-      }
+      */*{
+        font-family: "Silkscreen", sans-serif;
+      }*/
 
       .mnuTitle {
         margin-top: 60px;
+        font-family: "Silkscreen", sans-serif;
       }
 
-      body {
+      body {     
         overflow: hidden;
         /* background-color: VAR(--bgColor); */
-        font-family: Arial, sans-serif;
+        font-family: "Arial", sans-serif;
         margin: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
         background: linear-gradient(
           -45deg,
           #fb6a61,
@@ -50,12 +51,15 @@
           #faff93
         );
 
-        background-size: 400% 400%;
-        animation: gradient 10s ease infinite;
-      }
+        background-size: 500% 500%;
+        animation: gradient 12s ease infinite;
+               }
+
+               
 
       .mnuRow {
-        width: 250px;
+        font-family: "Nova Square", sans-serif;
+        width: 235px;
         height: 40px;
         background: var(--btnColor);
         transition: all 0.2s ease-in-out;
@@ -66,7 +70,8 @@
         justify-content: flex-start;
         align-items: center;
         border: solid 1px RGBA(0, 0, 0, 0.5);
-        margin-bottom: 15px;
+        margin-bottom: 16px;
+        
       }
 
       .mnuRow:hover {
@@ -82,7 +87,7 @@
 
       .iconImg {
         margin-right: 20px;
-        opacity: 0.25;
+        opacity: 0.2;
         transition: all 0.2s ease-in-out;
       }
 
@@ -91,7 +96,7 @@
       }
 
       h2 {
-        font-size: 60px;
+        font-size: 55px;
         margin-bottom: 30px;
         color: var(--textColor);
       }
@@ -122,10 +127,13 @@
           background-position: 0% 50%;
         }
       }
+      
     </style>
   </head>
 
-  <body>
+
+  
+   <body>
     <h2 class="mnuTitle">My Menu</h2>
     <div>
       <a
@@ -136,6 +144,7 @@
       >
         <img src="./sonarr.svg" alt="Sonarr Icon" class="iconImg" />
         <span class="linkTitle">Sonarr</span>
+        
       </a>
       <a
         id="Radarr"
@@ -156,13 +165,13 @@
         <span class="linkTitle">Jellyfin</span>
       </a>
       <a
-        id="SABNbz"
+        id="SABnzbd"
         href="http://72.140.141.107:8080"
         target="_blank"
         class="mnuRow"
       >
-        <img src="./sabnzbd.png" alt="SABNbz Icon" class="iconImg" />
-        <span class="linkTitle">SABNbz</span>
+        <img src="./sabnzbd.png" alt="SABnzbd Icon" class="iconImg" />
+        <span class="linkTitle">SABnzbd</span>
       </a>
       <a
         id="Qbittorent"
@@ -179,7 +188,7 @@
         var Sonarr = document.getElementById("Sonarr");
         var Radarr = document.getElementById("Radarr");
         var Jellyfin = document.getElementById("Jellyfin");
-        var SABNbz = document.getElementById("SABNbz");
+        var SABnzbd = document.getElementById("SABnzbd");
         var Qbittorent = document.getElementById("Qbittorent");
 
         var currentHost = window.location.hostname;
@@ -188,13 +197,13 @@
           Sonarr.href = "http://192.168.0.89:8888";
           Radarr.href = "http://192.168.0.7950";
           Jellyfin.href = "http://192.168.0.9005";
-          SABNbz.href = "http://192.168.0.89:8080";
+          SABnzbd.href = "http://192.168.0.89:8080";
           Qbittorent.href = "http://192.168.0.89:8085";
         } else {
           Sonarr.href = "http://72.140.141.107:8888";
           Radarr.href = "http://72.140.141.107:7950";
           Jellyfin.href = "http://72.140.141.107:9005";
-          SABNbz.href = "http://72.140.141.107:8080";
+          SABnzbd.href = "http://72.140.141.107:8080";
           Qbittorent.href = "http://72.140.141.107:8085";
         }
       });
